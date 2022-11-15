@@ -19,10 +19,11 @@
     nav {
       position: absolute;
       top: 0;
-      left: 0;
+      right: 0;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-end;
+      margin: 20px;
     }
 
     #main-canvas {
@@ -30,17 +31,27 @@
       height: 100%;
       width: 100%;
     }
+
+    button {
+      width: 120px;
+      margin: 3px 0;
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 5px;
+      background-color: white;
+      cursor: pointer;
+    }
   </style>
 </head>
 
 <body>
   <canvas id="main-canvas"></canvas>
   <nav>
-    <!-- <button id="button-1">dodecahedron</button>
-    <button id="button-2">lathe</button>
-    <button id="button-3">extrude</button>
-    <button id="button-4">tube</button> -->
-    <!-- button -->
+    <button id="button1">dodecahedron</button>
+    <button id="button2">lathe</button>
+    <button id="button3">extrude</button>
+    <button id="button4">tube</button>
+    <button id="button5">svg</button>
   </nav>
   <script src="dist/bundle.js"></script>
 </body>

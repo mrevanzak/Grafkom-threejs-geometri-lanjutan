@@ -8,6 +8,7 @@
 
     <script type="text/javascript" src="../ref/libs/stats.js"></script>
     <script type="text/javascript" src="../ref/libs/dat.gui.js"></script>
+    <script type="text/javascript" src="../ref/libs/OrbitControls.js"></script>
     <script type="text/javascript" src="../ref/libs/spin.js"></script>
     <script type="text/javascript" src="../ref/libs/ThreeBSP.js"></script>
     <style>
@@ -75,6 +76,8 @@
 
             // add the output of the renderer to the html element
             document.getElementById("WebGL-output").appendChild(webGLRenderer.domElement);
+            var control = new THREE.OrbitControls(camera, webGLRenderer.domElement);
+            control.update();
 
             // call the render function
             var step = 0;
@@ -286,6 +289,7 @@
 
             function render() {
                 stats.update();
+                control.update();
 
 
                 //            sphere.rotation.y=step+=0.01;

@@ -9,10 +9,8 @@ import {
 import { createMultiMaterialObject } from "three/examples/jsm/utils/SceneUtils";
 
 export class Tube {
-  spGroup;
   tubeMesh;
   constructor() {
-    this.spGroup = new Object3D();
     this.tubeMesh = new Object3D();
     this.generatePoints();
   }

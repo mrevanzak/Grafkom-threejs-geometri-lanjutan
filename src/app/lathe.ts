@@ -7,10 +7,8 @@ import { LatheGeometry } from "three/src/geometries/LatheGeometry";
 import { createMultiMaterialObject } from "three/examples/jsm/utils/SceneUtils";
 
 export class Lathe {
-  spGroup;
   latheMesh;
   constructor() {
-    this.spGroup = new Object3D();
     this.latheMesh = new Object3D();
     this.generatePoints(12, 0, Math.PI * 2);
   }
@@ -22,10 +20,13 @@ export class Lathe {
   ) {
     const points: Vector2[] = [];
     const height = 5;
-    const count = 30;
+    const count = 20;
     for (let i = 0; i < count; i++) {
       points.push(
-        new Vector2((Math.sin(i * 0.2) * height + height) / 2, (i - count) / 2)
+        new Vector2(
+          Math.sin((i * 0.2) * height) * 2 + 3,
+          (i - count) * 0.8
+        )
       );
     }
 
@@ -36,6 +37,7 @@ export class Lathe {
       phiLength
     );
     this.latheMesh = this.createMesh(latheGeometry);
+    this.latheMesh.position.set(0, 10, 0);
   }
 
   private createMesh(geom: LatheGeometry) {

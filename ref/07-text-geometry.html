@@ -8,9 +8,10 @@
 
     <script type="text/javascript" src="../ref/libs/stats.js"></script>
     <script type="text/javascript" src="../ref/libs/dat.gui.js"></script>
-    <script type="text/javascript" src="../assets/fonts/helvetiker_regular.typeface.js"></script>
-    <script type="text/javascript" src="../assets/fonts/helvetiker_bold.typeface.js"></script>
-    <script type="text/javascript" src="../assets/fonts/bitstream_vera_sans_mono_roman.typeface.js"></script>
+    <script type="text/javascript" src="../ref/libs/OrbitControls.js"></script>
+    <script type="text/javascript" src="../ref/assets/fonts/helvetiker_regular.typeface.js"></script>
+    <script type="text/javascript" src="../ref/assets/fonts/helvetiker_bold.typeface.js"></script>
+    <script type="text/javascript" src="../ref/assets/fonts/bitstream_vera_sans_mono_roman.typeface.js"></script>
 
     <style>
         body {
@@ -59,13 +60,15 @@
             dirLight.position.set(25, 23, 15);
             scene.add(dirLight);
 
-
             var dirLight2 = new THREE.DirectionalLight();
             dirLight2.position.set(-25, 23, 15);
             scene.add(dirLight2);
 
             // add the output of the renderer to the html element
             document.getElementById("WebGL-output").appendChild(webGLRenderer.domElement);
+
+            var control = new THREE.OrbitControls(camera, webGLRenderer.domElement);
+            control.update();
 
             // call the render function
             var step = 0;
@@ -157,6 +160,7 @@
             }
 
             function render() {
+                control.update();
                 stats.update();
                 requestAnimationFrame(render);
                 webGLRenderer.render(scene, camera);

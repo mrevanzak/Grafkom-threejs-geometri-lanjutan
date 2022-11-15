@@ -18,13 +18,14 @@ export class Extrude {
     this.shape = this.createMesh(
       new ExtrudeGeometry(this.drawShape(), this.option)
     );
+    this.shape.position.set(0, -20, 0);
   }
 
   private setOption() {
     const option = {
       steps: 2,
       depth: 10,
-      bevelEnabled: true,
+      bevelEnabled: false,
       bevelThickness: 1,
       bevelSize: 1,
       bevelOffset: 0,

@@ -44,10 +44,55 @@ export class App {
     this.tube = new Tube();
     this.svg = new ExtrudeSVG();
 
+    const button1 = document.getElementById("button1") as HTMLButtonElement;
+    button1.addEventListener("click", () => {
+      this.scene.add(this.dodecahedron.convexMesh);
+      this.scene.remove(this.lathe.latheMesh);
+      this.scene.remove(this.extrude.shape);
+      this.scene.remove(this.tube.tubeMesh);
+      this.scene.remove(this.svg.shape);
+    });
+
+    const button2 = document.getElementById("button2") as HTMLButtonElement;
+    button2.addEventListener("click", () => {
+      this.scene.add(this.lathe.latheMesh);
+      this.scene.remove(this.dodecahedron.convexMesh);
+      this.scene.remove(this.extrude.shape);
+      this.scene.remove(this.tube.tubeMesh);
+      this.scene.remove(this.svg.shape);
+    });
+
+    const button3 = document.getElementById("button3") as HTMLButtonElement;
+    button3.addEventListener("click", () => {
+      this.scene.add(this.extrude.shape);
+      this.scene.remove(this.dodecahedron.convexMesh);
+      this.scene.remove(this.lathe.latheMesh);
+      this.scene.remove(this.tube.tubeMesh);
+      this.scene.remove(this.svg.shape);
+    });
+
+    const button4 = document.getElementById("button4") as HTMLButtonElement;
+    button4.addEventListener("click", () => {
+      this.scene.add(this.tube.tubeMesh);
+      this.scene.remove(this.dodecahedron.convexMesh);
+      this.scene.remove(this.lathe.latheMesh);
+      this.scene.remove(this.extrude.shape);
+      this.scene.remove(this.svg.shape);
+    });
+
+    const button5 = document.getElementById("button5") as HTMLButtonElement;
+    button5.addEventListener("click", () => {
+      this.scene.add(this.svg.shape);
+      this.scene.remove(this.dodecahedron.convexMesh);
+      this.scene.remove(this.lathe.latheMesh);
+      this.scene.remove(this.extrude.shape);
+      this.scene.remove(this.tube.tubeMesh);
+    });
+
     // this.scene.add(this.dodecahedron.convexMesh);
     // this.scene.add(this.lathe.latheMesh);
     // this.scene.add(this.extrude.shape);
-    this.scene.add(this.tube.tubeMesh);
+    // this.scene.add(this.tube.tubeMesh);
     // this.scene.add(this.svg.shape);
 
     this.camera.position.set(-30, 40, 50);
